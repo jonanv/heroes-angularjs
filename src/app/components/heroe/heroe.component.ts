@@ -24,16 +24,25 @@ export class HeroeComponent implements OnInit {
   }
 
   save(form: NgForm) {
-
     if (form.invalid) {
       return;
     }
 
-    this.heroesService.creatHeroe(this.heroe)
-      .pipe(first())
-      .subscribe(response => {
-        console.log(response);
-      });
+    if(this.heroe.id) {
+      this.heroesService.updateHeroe(this.heroe)
+        .pipe(first())
+        .subscribe(response => {
+          console.log(response);
+        });
+    }
+    else {
+      this.heroesService.creatHeroe(this.heroe)
+        .pipe(first())
+        .subscribe(response => {
+          console.log(response);
+        });
+    }
+
   }
 
 }
