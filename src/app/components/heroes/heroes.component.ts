@@ -34,7 +34,6 @@ export class HeroesComponent implements OnInit {
   }
 
   deleteHeroe(heroe: HeroeModel, i: number) {
-
     Swal.fire({
       title: '¿Está seguro?',
       text: `Está seguro que desea borrar a ${heroe.name}`,
@@ -48,7 +47,6 @@ export class HeroesComponent implements OnInit {
           .pipe(first())
           .subscribe();
       }
-    })
-
+    });
   }
 }
