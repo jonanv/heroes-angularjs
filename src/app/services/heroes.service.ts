@@ -16,7 +16,7 @@ export class HeroesService {
     private http: HttpClient
   ) { }
 
-  creatHeroe(heroe: HeroeModel) {
+  createHeroe(heroe: HeroeModel) {
     return this.http.post(`${ this.url }/heroes.json`, heroe)
       .pipe(map(response => {
         heroe.id = response['name'];
@@ -35,5 +35,28 @@ export class HeroesService {
       .pipe(map(response => {
         return heroe;
       }));
+  }
+
+  getHeroes() {
+    return this.http.get(`${ this.url }/heroes.json`)
+      .pipe(map(response => {
+        return this.createArray(response);
+      }));
+  }
+
+  private createArray(heroesObj: Object) {
+    const heroes: HeroeModel[] = [];
+
+    if( heroesObj === null) {
+      return [];
+    }
+
+    Object.keys(heroesObj)
+      .forEach(key => {
+        const heroe: HeroeModel = heroesObj[key];
+        heroe.id = key;
+        heroes.push(heroe);
+      });
+    return heroes;
   }
 }

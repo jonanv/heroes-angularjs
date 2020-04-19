@@ -21,12 +21,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+        <tr *ngFor="let heroe of heroes; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ heroe.name }}</td>
+            <td>{{ heroe.power }}</td>
+            <td>
+                <label *ngIf="heroe.status" class="badge badge-success">Vivo</label>
+                <label *ngIf="!heroe.status" class="badge badge-danger">Muerto</label>
+            </td>
+            <td>Tools</td>
         </tr>
     </tbody>
 </table>

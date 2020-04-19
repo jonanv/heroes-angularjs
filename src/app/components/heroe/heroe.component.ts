@@ -20,7 +20,9 @@ export class HeroeComponent implements OnInit {
 
   constructor(
     private heroesService: HeroesService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -46,7 +48,7 @@ export class HeroeComponent implements OnInit {
       message = 'Se actualizo correctamente';
     }
     else {
-      peticion = this.heroesService.creatHeroe(this.heroe);
+      peticion = this.heroesService.createHeroe(this.heroe);
       message = 'Se creo correctamente';
     }
 
@@ -59,7 +61,6 @@ export class HeroeComponent implements OnInit {
           icon: 'success'
         });
       });
-
   }
 
 }
