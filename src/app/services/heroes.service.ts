@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HeroeModel } from '../models/heroe.model';
 
 // Imports
-import { map } from "rxjs/operators";
+import { map, delay } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class HeroesService {
     return this.http.get(`${ this.url }/heroes.json`)
       .pipe(map(response => {
         return this.createArray(response);
-      }));
+      }), delay(1000));
   }
 
   private createArray(heroesObj: Object) {

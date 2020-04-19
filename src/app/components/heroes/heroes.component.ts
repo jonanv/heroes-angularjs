@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class HeroesComponent implements OnInit {
 
   heroes: HeroeModel[] = [];
+  loading: boolean = true;
 
   constructor(
     private heroesService: HeroesService
@@ -28,6 +29,7 @@ export class HeroesComponent implements OnInit {
       .pipe(first())
       .subscribe(response => {
         this.heroes = response;
+        this.loading = false;
       });
   }
 
