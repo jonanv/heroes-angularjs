@@ -66,4 +66,11 @@ export class HeroesService {
         return response;
       }));
   }
+
+  deleteHeroe(id: string) {
+    return this.http.delete(`${ this.url }/heroes/${ id }.json`)
+      .pipe(map(response => {
+        return response;
+      }));
+  }
 }
