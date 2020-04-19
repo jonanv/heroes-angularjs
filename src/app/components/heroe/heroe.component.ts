@@ -8,6 +8,7 @@ import { HeroesService } from '../../services/heroes.service';
 import { first } from 'rxjs/operators';
 import Swal from "sweetalert2";
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-heroe',
@@ -19,12 +20,24 @@ export class HeroeComponent implements OnInit {
   heroe = new HeroeModel();
 
   constructor(
-    private heroesService: HeroesService
+    private heroesService: HeroesService,
+    private activatedRouter: ActivatedRoute
   ) {
 
   }
 
   ngOnInit(): void {
+    const id = this.activatedRouter.snapshot.paramMap.get('id');
+
+    if(id !== 'nuevo') {
+      this.heroesService.getHeroe(id)
+        .pipe(first())
+        .subscribe((response: HeroeModel) => {
+          this.heroe = response;
+          this.heroe.id = id;
+        });
+    }
+
   }
 
   save(form: NgForm) {
