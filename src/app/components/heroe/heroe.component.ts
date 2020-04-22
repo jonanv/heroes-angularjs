@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HeroeModel } from '../../models/heroe.model';
 
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { HeroesService } from '../../services/heroes.service';
 
 // Imports
 import { first } from 'rxjs/operators';
 import Swal from "sweetalert2";
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-heroe',
