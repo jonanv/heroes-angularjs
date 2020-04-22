@@ -37,7 +37,6 @@ export class HeroeComponent implements OnInit {
           this.heroe.id = id;
         });
     }
-
   }
 
   save(form: NgForm) {

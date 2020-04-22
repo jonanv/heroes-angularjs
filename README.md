@@ -9,9 +9,11 @@
 
 # Site
 <!-- ![heroes angularjs](https://i.imgur.com/B2heenX.png) -->
+![heroes angularjs 1](https://i.imgur.com/Me55x8o.png)
+![heroes angularjs 2](https://i.imgur.com/yHrX9sL.png)
 
 # Install dependences
-in ````heroes-angularjs/```
+in ```heroes-angularjs/```
 
 ```bash
 npm install
