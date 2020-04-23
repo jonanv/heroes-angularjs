@@ -76,7 +76,7 @@ ng g s services/heroe --skipTests
 # Server local
 install global ```sudo npm i -g http-server```
 
-deploy in ```/heroes-angularjs/dist/login-angularjs/```
+deploy in ```/heroes-angularjs/dist/heroes-angularjs/```
 
 ```javascript
 http-server
